@@ -1,46 +1,24 @@
+import kotlin.math.max
+
 fun main() {
+    helloWorld()
+    sum(2, 3)
+    println("${divisao(10f, 3.5f)}")
 
-    var i = 0
-    while(i < 5) {
-        val titular: String = "Alex $i"
-        val numeroConta: Int = 1000 + i
-        var saldo = i + 0.0
+    val str = "Tamanho da String"
 
-        println("titular $titular")
-        println("número da conta $numeroConta")
-        println("saldo da conta $saldo")
-        println()
-        i++
-    }
-
-//    for (i in 5 downTo 1) {
-//        println("Bem vindo ao Bytebank")
-//
-//        val titular: String = "Alex $i"
-//        val numeroConta: Int = 1000 + i
-//        var saldo = i + 0.0
-//
-//        println("titular $titular")
-//        println("número da conta $numeroConta")
-//        println("saldo da conta $saldo")
-//        println()
-//
-//        when {
-//            saldo > 0.0 -> println("Conta é positiva")
-//            saldo == 0.0 -> println("Conta é positiva")
-//            else -> println("Conta é negativa")
-//        }
-//    }
-
-//    testaCondicoes(saldo)
+    println(max(5, 10))
 }
 
-fun testaCondicoes(saldo: Double) {
-    if (saldo > 0.0) {
-        println("Conta é positiva")
-    } else if (saldo == 0.0) {
-        println("Conta é neutra")
-    } else {
-        println("Conta é negativa")
-    }
+fun sumRedux(a: Int, b: Int) = (a + b)
+
+fun sum(a: Int, b: Int): Int {
+    return (a + b)
 }
+
+fun helloWorld(): Unit {
+    println("Hello World")
+}
+
+fun divisao(a: Float, b: Float) = a / b
+
