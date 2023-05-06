@@ -1,73 +1,85 @@
-import kotlin.math.max
-
 fun main() {
-    convertYears(2)
-    caracters("calculo de string")
-    cubo(3)
-    converteMilhas(1.00f)
-    trocaLetras("asdxa asd cx")
-    maiorDeIdade(15)
-
-    val bonus = bonus("Gerente")
-    println(bonus)
+    portaria()
 }
 
-fun bonus(cargo: String): Float {
-    var bonus = 0f
-    if (cargo == "Gerente") {
-        bonus = 2000f
-    } else if (cargo == "Coordenador") {
-        bonus = 1500f
-    } else if (cargo == "Engenheiro de software") {
-        bonus = 1000f
-    } else if (cargo == "Estagiário") {
-        bonus = 500f
+fun portaria() {
+    println("Qual sua idade")
+    val idade = readLine()
+
+    if (idade != null && idade != "") {
+        if (idade.toInt() < 18) {
+            println("Negado")
+            return
+        }
     }
 
-    return bonus
+    println("Qual o tipo de convite")
+    var tipoConvite = readLine()
+
+    if (tipoConvite != null && tipoConvite != "") {
+        tipoConvite = tipoConvite.lowercase()
+
+        if (tipoConvite == "comum" || tipoConvite == "premium" || tipoConvite == "luxo") {
+
+            println("Qual o código do convite?")
+            var codigo = readLine()
+
+            if (codigo != null && codigo != "") {
+                codigo = codigo.lowercase()
+                if (tipoConvite == "comum" && codigo.startsWith("xt")) {
+                    println("Bem vindo")
+                } else if (tipoConvite == "premium" || tipoConvite == "luxo" && codigo.startsWith("xl")) {
+                    println("Bem vindo")
+                } else {
+                    println("Negado: convite não encontrado")
+                }
+            }
+        } else {
+            println("Negado: convite inválido")
+            return
+        }
+    }
+
 }
 
-fun maiorDeIdade(idade: Int) {
-    if (idade > 18) {
-        println("Maior de idade")
-    } else if (idade < 10) {
-        println("Menor de idade")
+fun square() {
+    println("informe o lado 1:")
+    val lado1 = readLine()
+
+    println("informe o lado 2:")
+    val lado2 = readLine()
+
+    if (lado1 != null && lado1 != "" && lado2 != null && lado2 != "") {
+        val x = lado1.toInt()
+        val y = lado2.toInt()
+
+        if (x == y) {
+            println("Quadrado")
+        } else {
+            println("Não é um quadrado")
+        }
     }
 }
 
-fun saudacao(dia: Boolean) = if (dia) {
-    "Bom dia"
-} else {
-    "Boa noite"
-}
+fun triangulo() {
+    println("informe o lado 1:")
+    val lado1 = readLine()
 
-fun retorno(valor: Int): Int {
-    return if (valor != 10) {
-        10
-    } else {
-        20
+    println("informe o lado 2:")
+    val lado2 = readLine()
+
+    println("informe o lado 3:")
+    val lado3 = readLine()
+
+    if (lado1 != null && lado1 != "" && lado2 != null && lado2 != "" && lado3 != null && lado3 != "") {
+        val x = lado1.toInt()
+        val y = lado2.toInt()
+        val z = lado3.toInt()
+
+        if (x == y && y == z) {
+            println("Triângulo")
+        } else {
+            println("Não é um Triângulo")
+        }
     }
-}
-
-fun trocaLetras(str: String): String {
-    return str.replace("A", "x").lowercase()
-}
-
-fun converteMilhas(milhas: Float) = milhas * 1.6F
-
-fun cubo(n: Int): Int {
-    return n * n * n
-}
-
-fun caracters(str: String): Int {
-    return str.length
-}
-
-fun convertYears(year: Int) {
-    println("$year anos equivale a:")
-    println("${year * 12} meses:")
-    println("${year * 365} dias:")
-    println("${year * 365 * 24} horas:")
-    println("${year * 365 * 24 * 60} minutos:")
-    println("${year * 365 * 24 * 60} segundos:")
 }
