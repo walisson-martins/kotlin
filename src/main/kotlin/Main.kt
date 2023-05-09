@@ -1,20 +1,36 @@
-class Pessoa(val anoNascimento: Int, var nome: String) {
-    var documento: String = ""
-    constructor(anoNascimento: Int, nome: String, documento: String): this(anoNascimento, nome) {
-        this.documento = documento
+class Animal(var especie: String) {
+    var fala: String = ""
+        get() {
+            println("Acesso get")
+            return field
+        }
+        set(value) {
+            println("Acesso set")
+            fala = value
+        }
+
+    init {
+        fala = if (especie == "cachorro") {
+            "au"
+        } else if (especie == "gato") {
+            "miau"
+        } else {
+            ""
+        }
     }
-    fun dormir() {
+
+    fun falar() {
+        println(fala)
     }
-    fun acordar() {
+
+    init {
+        println("2 Animal")
     }
 }
-
-class vazia private constructor()
 
 fun main() {
-    val pessoa: Pessoa = Pessoa(2000, "Walisson")
-
-    println(pessoa.nome)
-    pessoa.acordar()
-    pessoa.dormir()
+    val animal = Animal("cachorro")
+    Animal("gato").falar()
+    animal.falar()
 }
+
