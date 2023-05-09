@@ -1,35 +1,25 @@
 import org.junit.jupiter.api.*
 
 class MainTest {
-    @Test
-    @DisplayName("Teste método countXO")
-    fun testCountXO() {
-        Assertions.assertAll(
-            { Assertions.assertTrue(countXO("xxoo")) },
-            { Assertions.assertTrue(countXO("xooo")) },
-            { Assertions.assertTrue(countXO("xxxoo")) },
-        )
-    }
 
     @Test
-    @Disabled
-    fun naoImplementado() {
-    }
+    @DisplayName("Testa os cenários da portaria")
+    fun testPortaria() {
+        Assertions.assertEquals(portaria(15, "", ""), "Negado.")
+        Assertions.assertEquals(portaria(20, "", ""), "Negado.")
+        Assertions.assertEquals(portaria(25, "VIP", ""), "Negado.")
 
-    @Test
-    fun falhar() {
-        fail("Não posso terminar o teste")
-    }
+        Assertions.assertEquals(portaria(25, "Comum", "xt254"), "Welcome.")
+        Assertions.assertEquals(portaria(25, "Comum", "452112"), "Negado.")
 
-    @Test
-    fun assumption() {
-        Assumptions.assumeTrue(countXO("xxoo"))
-        Assumptions.assumeTrue((countXO("só roda se for true")))
-    }
+        Assertions.assertEquals(portaria(25, "premium", "xt254"), "Negado.")
+        Assertions.assertEquals(portaria(25, "premium", "452112"), "Negado.")
+        Assertions.assertEquals(portaria(25, "premium", "xl452112"), "Welcome.")
+        Assertions.assertEquals(portaria(25, "luxo", "xl452112"), "Welcome.")
 
-    @Test
-    fun excp() {
-        assertThrows<NullPointerException> {
-        }
+        Assertions.assertAll({
+            Assertions.assertEquals(portaria(25, "premium", "xl452112"), "Welcome.")
+            Assertions.assertEquals(portaria(25, "luxo", "xl452112"), "Welcome.")
+        })
     }
 }

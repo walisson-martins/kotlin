@@ -1,25 +1,25 @@
-import java.lang.Exception
+fun portaria(idade: Int, tpConvite: String, cod: String): String {
+    if (idade < 18) {
+        return "Negado."
+    }
 
-fun main() {
-    try {
-        val str: String? = null
-        println(str ?: "nulo")
+    if (tpConvite != "") {
+        val tipoConvite = tpConvite.lowercase()
 
-        var str2 = if (str == null) "maior de idade" else "menor de idade"
-
-        str?.let {
-            it.lowercase()
-            it.length
+        if (tipoConvite != "comum" && tipoConvite != "premium" && tipoConvite != "luxo") {
+            return "Negado."
         }
 
-
-    } catch (e: NullPointerException) {
-        println("Variável inválida")
-    } catch (e: ArithmeticException) {
-        println("ArithmeticException inválida")
-    } catch (e: Exception) {
-        println("Exception")
-    } finally {
-        println("Finally")
+        if (cod != "") {
+            val codigo = cod.lowercase()
+            return if (tipoConvite == "comum" && codigo.startsWith("xt")) {
+                "Welcome."
+            } else if ((tipoConvite == "premium" || tipoConvite == "luxo") && codigo.startsWith("xl")) {
+                "Welcome."
+            } else {
+                "Negado."
+            }
+        }
     }
+    return "Negado."
 }
