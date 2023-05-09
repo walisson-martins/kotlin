@@ -1,20 +1,20 @@
-fun main() {
-    endereco("street", "city", "DF", "73358315")
-    endereco(cidade = "ci", rua = "street", estado = "Goias")
-    media(1f, 2f, 3f)
-}
-
-//vararg - argumentos de parametros
-fun <T> media(vararg notas: T): Float {
-    var soma = 0f
-    for (n in notas) {
-        if (n is Float) {
-            soma += n
-        }
+class Pessoa(val anoNascimento: Int, var nome: String) {
+    var documento: String = ""
+    constructor(anoNascimento: Int, nome: String, documento: String): this(anoNascimento, nome) {
+        this.documento = documento
     }
-
-    return (soma / notas.size)
+    fun dormir() {
+    }
+    fun acordar() {
+    }
 }
 
-fun endereco(rua: String, cidade: String, estado: String, cep: String = "", num: Int = 0) {
+class vazia private constructor()
+
+fun main() {
+    val pessoa: Pessoa = Pessoa(2000, "Walisson")
+
+    println(pessoa.nome)
+    pessoa.acordar()
+    pessoa.dormir()
 }
