@@ -1,29 +1,18 @@
-open class Eletronico(var marca: String) {
-    private fun corrente(ativo: Boolean) {}
-    fun ligar() {
-        corrente(false)
+class Matematica {
+
+    companion object {
+        val PI = 3.1415
+        fun funcao() {}
     }
 
-    open fun desligar() {}
-}
-
-class Computador(marca: String) : Eletronico(marca) {
-    fun save() {}
-
-    override fun desligar() {
-        save()
-        super.desligar()
-    }
-
-    fun save(a: Int) {
-    }
-
-    fun save(a: Double) {
+    object obj {
+        val PI = 3.1415
+        fun funcao() {}
     }
 }
 
 fun main() {
-    var c: Computador = Computador("DELL")
-    c.ligar()
-    c.desligar()
+    Matematica.PI
+    Matematica.funcao()
+    Matematica.obj.PI
 }
