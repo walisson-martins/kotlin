@@ -1,27 +1,31 @@
-interface Selvagem {
-    fun atacar() {
-        println("")
+interface Funcionario {
+    var salario: Float
+    fun bonus(): Float
+}
+
+class Gerente(override var salario: Float) : Funcionario {
+    override fun bonus(): Float {
+        return salario * 0.5f
     }
 }
 
-abstract class Mamifero(val nome: String) {
-    fun acordar() {}
-    fun dormir() {}
-    abstract fun falar()
-    abstract fun comer()
+class Analista(override var salario: Float) : Funcionario {
+    override fun bonus(): Float {
+        return salario * 0.3f
+    }
 }
 
-
-class Cachorro(nome: String) : Mamifero(nome), Selvagem {
-    override fun falar() {
-        TODO("Not yet implemented")
-    }
-
-    override fun comer() {
-        TODO("Not yet implemented")
-    }
+fun mostraBonus(func: Funcionario) {
+    println(func.bonus())
 }
 
 fun main() {
+    mostraBonus(Gerente(100.0f))
+    mostraBonus(Analista(100.0f))
 
+    try {
+
+    } catch (e: NullPointerException) {
+
+    }
 }
