@@ -1,14 +1,13 @@
 fun main() {
+    val set1: Set<String> = setOf<String>("paris", "berlim", "paris")
+    val set2: MutableSet<String> = mutableSetOf<String>()
 
-    val list1: List<Int> = listOf<Int>(1, 2, 3)
-    val mtbl: MutableList<Int> = mutableListOf(1, 2, 3)
+    println(set1)
 
-    println(mtbl[0])
-    println(mtbl[1])
+    val map1 = mapOf<String, String>(Pair("França", "Paris"), Pair("Alemanha", "Berlim"))
+    val map2 = mutableMapOf<String, String>(Pair("França", "Paris"), Pair("Alemanha", "Berlim"))
 
-    mtbl.add(8)
-    mtbl.remove(1)
-    mtbl.removeAt(0)
-    mtbl.clear()
-    println(mtbl)
+    println(map1.entries)
+    println(map1.values)
+    map2["Brasil"] = "Brasilia"
 }
