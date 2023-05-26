@@ -1,21 +1,14 @@
-interface Event {
-    fun onSucess()
-}
-
-class Programa {
-    fun salvar(e: Event) {
-        println("Abrindo conexão")
-        println("Salvando conexão")
-        println("Sucesso. conexão pronta")
-        e.onSucess()
-    }
-}
-
 fun main() {
-    val p = Programa()
-    p.salvar(object : Event {
-        override fun onSucess() {
-            TODO("Not yet implemented")
-        }
-    })
+
+    val list1: List<Int> = listOf<Int>(1, 2, 3)
+    val mtbl: MutableList<Int> = mutableListOf(1, 2, 3)
+
+    println(mtbl[0])
+    println(mtbl[1])
+
+    mtbl.add(8)
+    mtbl.remove(1)
+    mtbl.removeAt(0)
+    mtbl.clear()
+    println(mtbl)
 }
